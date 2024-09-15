@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your Reservations</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'satvik/css/styles.css' %}">
+</head>
+<body>
+    <h1>Your Reservations</h1>
+    <div class="container">
+        <ul>
+            {% for reservation in reservations %}
+            <li>
+                Reservation for {{ reservation.guest_count }} guests on {{ reservation.date }} at {{ reservation.time }}
+                - <a href="{% url 'cancel_reservation' reservation.id %}">Cancel</a>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>

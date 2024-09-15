@@ -31,6 +31,14 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["8000-poojapar-satvikfood-854qz4fn8i4.ws-eu116.gitpod.io", ".herokuapp.com"]
 
+# Define the STATIC_ROOT path where collectstatic will gather static files for production
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Static URL
+STATIC_URL = '/static/'
+
+# Specify the static files directory inside your app
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'satvik/static')]
 
 # Application definition
 

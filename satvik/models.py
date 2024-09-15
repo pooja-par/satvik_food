@@ -4,8 +4,8 @@ from django.contrib.auth.models import User
 # Model goes here 
 
 class Table(models.Model):
-    table_number = models.IntegerField(choices=STATUS, default=0)  # Corresponds to HTML number input
-    capacity = models.IntegerField(choices=STATUS, default=0)  # Corresponds to HTML number input
+    table_number = models.IntegerField(unique=True)  # Corresponds to HTML number input
+    capacity = models.IntegerField(unique=True)  # Corresponds to HTML number input
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)   
 
@@ -18,6 +18,7 @@ class Reservation(models.Model):
     table = models.ForeignKey(Table, on_delete=models.CASCADE)  # Corresponds to HTML select dropdown
     date = models.DateField(auto_now_add=True)  # Corresponds to HTML date input
     time = models.TimeField(auto_now_add=True)  # Corresponds to HTML time input
+    guest_count = models.IntegerField(default=1) 
     excerpt = models.TextField(blank=True)
     updated_on = models.DateTimeField(auto_now=True)
 

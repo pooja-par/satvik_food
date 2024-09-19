@@ -1,3 +1,5 @@
+/* satvik/static/satvik/css/styles.css */
+
 /* General styles for all pages */
 body {
     font-family: 'Arial', sans-serif;
@@ -24,7 +26,7 @@ h1 {
 
 a {
     display: inline-block;
-    margin: 15px auto;
+    margin: 15px 10px;
     padding: 12px 20px;
     background-color: #3498db;
     color: white;
@@ -38,4 +40,115 @@ a:hover {
     background-color: #2980b9;
 }
 
-form
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px 0;
+}
+
+label {
+    font-weight: bold;
+    color: #2c3e50;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
+    transition: border-color 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+input[type="time"]:focus,
+input[type="number"]:focus,
+textarea:focus {
+    border-color: #3498db;
+    outline: none;
+}
+
+button {
+    padding: 12px;
+    background-color: #27ae60;
+    color: white;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #2ecc71;
+}
+
+.cancel-button {
+    background-color: #e74c3c;
+}
+
+.cancel-button:hover {
+    background-color: #c0392b;
+}
+
+.back-link {
+    background-color: #95a5a6;
+    padding: 12px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    text-align: center;
+}
+
+.back-link:hover {
+    background-color: #7f8c8d;
+}
+
+/* Style for success and error messages */
+.message {
+    padding: 12px;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.message.success {
+    background-color: #dff0d8;
+    color: #3c763d;
+    border: 1px solid #3c763d;
+}
+
+.message.error {
+    background-color: #f2dede;
+    color: #a94442;
+    border: 1px solid #a94442;
+}
+
+/* Reservations list styles */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 15px;
+    margin-bottom: 10px;
+    background-color: #ecf0f1;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+li strong {
+    font-size: 16px;
+}
+
+li a, li button {
+    margin-left: 10px;
+}

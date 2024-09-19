@@ -23,9 +23,10 @@ from django.http import HttpResponse
 #    return HttpResponse("<h1>Welcome to the Restaurant Booking System!</h1>")
 
 urlpatterns = [
-    #path("satvik/", satvik_views.my_satvik, name='satvik'),
     path('admin/', admin.site.urls),
-    path('', include('satvik.urls')),  # Include satvik app's URLs
+    path("", include("satvik.urls"), name="satvik-urls"), # Include satvik app's URLs
+    path('summernote/', include('django_summernote.urls')),
+    #path('', include('satvik.urls')),  
     #path('book/', include('satvik.urls')),
     #path('', home_view, name='home'),  # Add this line to handle the root URL
 ]

@@ -1,5 +1,6 @@
 from . import views
-from django.urls import path
+from django.urls import path, include
+from django.http import HttpResponse 
 
 urlpatterns = [
     path('', views.home_view, name='home'),  # Root URL handler

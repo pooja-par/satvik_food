@@ -1,23 +1,43 @@
+<!-- satvik/templates/satvik/view_bookings.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Reservations</title>
+    <title>Your Reservations - Satvik Restaurant</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'satvik/css/styles.css' %}">
 </head>
 <body>
+    {% if messages %}
+        <div class="container">
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
     <h1>Your Reservations</h1>
     <div class="container">
-        <ul>
-            {% for reservation in reservations %}
-            <li>
-                Reservation for {{ reservation.guest_count }} guests on {{ reservation.date }} at {{ reservation.time }}
-                - <a href="{% url 'cancel_reservation' reservation.id %}">Cancel</a>
-            </li>
-            {% endfor %}
-        </ul>
+        {% if reservations %}
+            <ul>
+                {% for reservation in reservations %}
+                <li>
+                    <strong>{{ reservation.table }}</strong> - {{ reservation.guest_count }} guests on {{ reservation.date }} at {{ reservation.time }}
+                    <form method="POST" action="{% url 'cancel_reservation' reservation.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" class="cancel-button">Cancel</button>
+                    </form>
+                </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>You have no reservations.</p>
+        {% endif %}
+        <a href="{% url 'home' %}">Back to Home</a>
     </div>
+    <script src="{% static 'satvik/js/scripts.js' %}"></script>
 </body>
 </html>

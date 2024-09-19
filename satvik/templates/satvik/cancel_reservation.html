@@ -1,0 +1,33 @@
+<!-- satvik/templates/satvik/cancel_reservation.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cancel Reservation - Satvik Restaurant</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'satvik/css/styles.css' %}">
+</head>
+<body>
+    {% if messages %}
+        <div class="container">
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <h1>Cancel Reservation</h1>
+    <div class="container">
+        <p>Are you sure you want to cancel your reservation for <strong>{{ reservation.table }}</strong> on {{ reservation.date }} at {{ reservation.time }}?</p>
+        <form method="POST">
+            {% csrf_token %}
+            <button type="submit" class="cancel-button">Yes, Cancel</button>
+            <a href="{% url 'view_bookings' %}" class="back-link">No, Go Back</a>
+        </form>
+    </div>
+    <script src="{% static 'satvik/js/scripts.js' %}"></script>
+</body>
+</html>

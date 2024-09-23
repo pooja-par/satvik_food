@@ -1,6 +1,15 @@
 /* satvik/static/satvik/css/styles.css */
 
 /* General styles */
+
+/* Hero Section */
+.hero {
+    background-image: url('https://source.unsplash.com/1600x900/?vegetarian,restaurant');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+}
+
 body {
     font-family: 'Roboto', sans-serif;
     background-color: #f0f4f8;
@@ -122,4 +131,45 @@ h1 {
 .message.error {
     background-color: #e74c3c;
     color: white;
+}
+
+/* Text Over Image */
+h1, p.lead {
+    color: white;
+}
+
+/* Image Section */
+.about-section img {
+    transition: transform 0.3s ease;
+}
+
+.about-section img:hover {
+    transform: scale(1.05);
+}
+
+h2, h5 {
+    color: #2c3e50;
+}
+
+/* Footer */
+footer {
+    padding: 50px 0 65px;
+  }
+  
+  footer .list-inline {
+    margin: 0;
+    padding: 0;
+  }
+  
+  footer .copyright {
+    font-size: 14px;
+    margin-bottom: 0;
+    text-align: center;
+  }
+
+/* Image Uniform Size */
+.uniform-image {
+    width: 100px; /* This ensures responsiveness */
+    height: 100px; /* Set a fixed height */
+    object-fit: cover; /* Ensures the image fits the dimensions without distortion */
 }

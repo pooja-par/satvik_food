@@ -10,6 +10,8 @@
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'satvik/css/styles.css' %}">
+    <!-- Add Font Awesome for social media icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
 <body>
     <!-- Navigation Bar -->
@@ -36,47 +38,100 @@
     </nav>
 
     <!-- Menu Section -->
-    <section class="menu-section py-5 text-center">
+    <section class="menu-section py-5">
         <div class="container">
-            <h2>Our Menu</h2>
-            <p class="lead">Discover our delicious and organic vegetarian dishes.</p>
-            <div class="row mt-4">
-                <div class="col-md-4">
-                    <h4>Appetizers</h4>
+            <h2 class="text-center">Our Menu</h2>
+            <p class="lead text-center">Discover our delicious and organic vegetarian dishes.</p>
+
+            <!-- Appetizers Section -->
+            <div class="row mt-5 align-items-center">
+                <div class="col-md-6">
+                    <img src="https://www.brit.co/media-library/image.jpg?id=21875108&width=2400&height=1890" alt="Appetizers" class="img-fluid rounded shadow-lg">
+                </div>
+                <div class="col-md-6">
+                    <h3>Appetizers</h3>
                     <ul class="list-unstyled">
-                        <li>Organic Salad - $10</li>
-                        <li>Vegetarian Spring Rolls - $8</li>
-                        <li>Tomato Soup - $6</li>
+                        <li class="mb-2"><strong>Organic Salad</strong> - $10</li>
+                        <li class="mb-2"><strong>Vegetarian Spring Rolls</strong> - $8</li>
+                        <li class="mb-2"><strong>Tomato Soup</strong> - $6</li>
                     </ul>
                 </div>
-                <div class="col-md-4">
-                    <h4>Main Course</h4>
+            </div>
+
+            <!-- Main Course Section -->
+            <div class="row mt-5 align-items-center">
+                <div class="col-md-6 order-md-2">
+                    <img src="https://images.ctfassets.net/uexfe9h31g3m/6j5P6kIYrKXMPLiiSGdEoY/ccbcb2274d0c7d4aaec2b3f0820e196c/SpaghettiMeatballs_1024x768.jpg?w=1024&h=768&fm=webp&fit=thumb&q=90" alt="Main Course" class="img-fluid rounded shadow-lg">
+                </div>
+                <div class="col-md-6 order-md-1">
+                    <h3>Main Course</h3>
                     <ul class="list-unstyled">
-                        <li>Grilled Veggie Platter - $15</li>
-                        <li>Paneer Tikka - $18</li>
-                        <li>Vegetarian Lasagna - $16</li>
+                        <li class="mb-2"><strong>Grilled Veggie Platter</strong> - $15</li>
+                        <li class="mb-2"><strong>Paneer Tikka</strong> - $18</li>
+                        <li class="mb-2"><strong>Vegetarian Lasagna</strong> - $16</li>
                     </ul>
                 </div>
-                <div class="col-md-4">
-                    <h4>Desserts</h4>
+            </div>
+
+            <!-- Desserts Section -->
+            <div class="row mt-5 align-items-center">
+                <div class="col-md-6">
+                    <img src="https://vanfoodies.com/wp-content/uploads/2011/05/img_3786.jpg" alt="Desserts" class="img-fluid rounded shadow-lg">
+                </div>
+                <div class="col-md-6">
+                    <h3>Desserts</h3>
                     <ul class="list-unstyled">
-                        <li>Chocolate Cake - $7</li>
-                        <li>Fruit Salad - $5</li>
-                        <li>Ice Cream - $6</li>
+                        <li class="mb-2"><strong>Chocolate Cake</strong> - $7</li>
+                        <li class="mb-2"><strong>Fruit Salad</strong> - $5</li>
+                        <li class="mb-2"><strong>Ice Cream</strong> - $6</li>
                     </ul>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
+        <!-- Footer -->
     <footer class="footer bg-dark text-white text-center py-4">
         <div class="container">
-            <p>&copy; 2024 Satvik Food | All rights reserved</p>
+            <div class="row">
+                <div class="col-lg-8 col-md-10 mx-auto">
+                    <ul class="list-inline text-center">
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-twitter fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-facebook-f fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a href="#">
+                                <span class="fa-stack fa-lg">
+                                    <i class="fas fa-circle fa-stack-2x"></i>
+                                    <i class="fab fa-github fa-stack-1x fa-inverse"></i>
+                                </span>
+                            </a>
+                        </li>
+                    </ul>
+                    <div class="container">
+                        <p>&copy; 2024 Satvik Food | All rights reserved</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </footer>
 
     <!-- Bootstrap JS -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>
+
+    
 </body>
 </html>

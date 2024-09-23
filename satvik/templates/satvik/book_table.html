@@ -1,20 +1,34 @@
+<!-- satvik/templates/satvik/book_table.html -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Book a Table</title>
+    <title>Book a Table - Satvik Restaurant</title>
     {% load static %}
     <link rel="stylesheet" href="{% static 'satvik/css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
-    <h1>Book a Table</h1>
-    <div class="container">
-        <form method="POST">
+    {% if messages %}
+        <div class="container">
+            {% for message in messages %}
+                <div class="message {{ message.tags }}">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        </div>
+    {% endif %}
+    <div class="form-container">
+        <h1>Book a Table</h1>
+        <p class="form-description">Please fill in the details below to reserve your table at Satvik Restaurant.</p>
+        <form method="POST" id="reservation-form" class="fancy-form">
             {% csrf_token %}
             {{ form.as_p }}
-            <button type="submit">Book Now</button>
+            <button type="submit" class="fancy-submit-btn">Book Now</button>
         </form>
+        <a href="{% url 'home' %}" class="back-link">Back to Home</a>
     </div>
     <script src="{% static 'satvik/js/scripts.js' %}"></script>
 </body>

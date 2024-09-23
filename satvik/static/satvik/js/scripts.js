@@ -1,34 +1,31 @@
 /* satvik/static/satvik/js/scripts.js */
 
-// JavaScript to add interactivity to the reservation form
 document.addEventListener("DOMContentLoaded", function () {
-    const guestCountInput = document.querySelector("#id_guest_count");
-    if (guestCountInput) {
-        const guestCountWarning = document.createElement("p");
-        guestCountWarning.style.color = "red";
-        guestCountWarning.style.fontSize = "14px";
-        guestCountInput.insertAdjacentElement("afterend", guestCountWarning);
+    const form = document.getElementById("reservation-form");
 
-        guestCountInput.addEventListener("input", function () {
-            const guestCount = parseInt(guestCountInput.value, 10);
-            if (guestCount > 10) {
-                guestCountWarning.textContent = "Sorry, we cannot accommodate more than 10 guests per table.";
-            } else if (guestCount < 1) {
-                guestCountWarning.textContent = "Number of guests must be at least 1.";
-            } else {
-                guestCountWarning.textContent = "";
-            }
-        });
-    }
+    form.addEventListener("submit", function (event) {
+        // Simple validation
+        const guestCount = document.getElementById("id_guest_count").value;
+        if (guestCount <= 0) {
+            alert("Guest count must be greater than 0.");
+            event.preventDefault();
+            return;
+        }
 
-    // Confirmation before canceling a reservation
-    const cancelForms = document.querySelectorAll("form[action^='{% url 'cancel_reservation' %}']");
-    cancelForms.forEach(form => {
-        form.addEventListener("submit", function (e) {
-            const confirmation = confirm("Are you sure you want to cancel this reservation?");
-            if (!confirmation) {
-                e.preventDefault();
-            }
-        });
+        // Add a loading state
+        const submitButton = document.querySelector(".fancy-submit-btn");
+        submitButton.textContent = "Booking...";
+        submitButton.style.backgroundColor = "#2980b9";
+        submitButton.disabled = true;
+    });
+
+    // Live input validation for guest count
+    const guestCountInput = document.getElementById("id_guest_count");
+    guestCountInput.addEventListener("input", function () {
+        if (guestCountInput.value < 1) {
+            guestCountInput.style.borderColor = "#e74c3c";
+        } else {
+            guestCountInput.style.borderColor = "#2ecc71";
+        }
     });
 });

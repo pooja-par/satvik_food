@@ -47,6 +47,13 @@ def view_bookings(request):
     return render(request, 'satvik/view_bookings.html', {'reservations': reservations})
 
 
+def menu(request):
+    return render(request, 'satvik/menu.html')
+
+def contact(request):
+    return render(request, 'satvik/contact.html')
+
+
 # View to handle reservation cancellation
 def cancel_reservation(request, reservation_id):
     reservation = get_object_or_404(Reservation, id=reservation_id, user=request.user)

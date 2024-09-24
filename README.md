@@ -3,7 +3,7 @@
 The Satvik Restaurant Table Reservation App is a Django-based web application designed to allow users to book tables at the Satvik restaurant. The app provides a user-friendly interface for customers to reserve tables, view reservations, and make special requests. It also includes an admin panel with rich text editing capabilities for managing reservations using Django Summernote.
 
 ![Responsice Mockup Desktop](https://github.com/pooja-par/satvik_food/blob/main/satvik/static/satvik/images/bigscreen.png)
-![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/satvik/static/satvik/images/smallscreen.png)
+![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/blob/main/satvik/static/satvik/images/smallscreen.png)
 
 Author: Pooja Parmar
 
@@ -17,33 +17,33 @@ Allow the users to view the menu, book the table and also update the booking. We
 - Nevigation bar for Home, Menu, Contact and Admin Login panal.
 - Table Reservation: Users can book tables by specifying the number of guests, the date, and the time.
 
-![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/satvik/static/satvik/images/tablereserve.png)
+![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/blob/main/satvik/static/satvik/images/tablereserve.png)
 
 - View Reservations: Users can view their upcoming reservations.
 - Cancel Reservations: Users can cancel their reservations directly from the application.
 
-![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/satvik/static/satvik/images/viewreserve.png)
+![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/blob/main/satvik/static/satvik/images/viewreserve.png)
 
 - Admin Management: Admins can manage reservations via the Django Admin interface with rich text capabilities provided by Django Summernote.
 
-![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/satvik/static/satvik/images/djangohome.png)
+![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/blob/main/satvik/static/satvik/images/djangohome.png)
 
 - Responsive Design: The application is fully responsive and optimized for desktop and mobile devices.
 - Following tables are available to book. one table can not be booked multiple times. 
 
-![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/satvik/static/satvik/images/tables.png)
+![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/blob/main/satvik/static/satvik/images/tables.png)
 
 - Admin can view the reservation
 
-![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/satvik/static/satvik/images/reservations.png)
+![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/blob/main/satvik/static/satvik/images/reservations.png)
 
 - Menu page where user can select the menu
 
-![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/satvik/static/satvik/images/menu.png)
+![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/blob/main/satvik/static/satvik/images/menu.png)
 
 - Contact Us page where user can find the contact detail and address of the restaurant.
 
-![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/satvik/static/satvik/images/contact.png)
+![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/blob/main/satvik/static/satvik/images/contact.png)
 
 
 ## Technologies Used
@@ -64,7 +64,7 @@ Cancel Booking: Users can cancel reservations from their reservation list.
 Admin Panel: Go to /admin, log in as the superuser, and manage reservations.
 Rich Text Editor: The admin panel includes Django Summernote for managing special requests in reservations with rich text editing.
 
-![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/satvik/static/satvik/images/output.png)
+![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/blob/main/satvik/static/satvik/images/output.png)
 
 ## Testing
 

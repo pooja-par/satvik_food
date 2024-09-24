@@ -71,6 +71,16 @@ Rich Text Editor: The admin panel includes Django Summernote for managing specia
 I have manually tested this project by doing the following: -passed code through a PEP8 linter and confirmed there are no problems -Tested in my local terminal and Code Instite Heroku terminal -Check has been made by giving different numbers and also with empty field and random characters. With empty space and random characters, code return error and ask user to reenter the count again. -Where necessary, by print values are checked in terminal.
 
 ## Deployment
+This project was deployed using Code Institute's mock terminal for Heroku.
+
+Steps for deployment: 
+- Login to heroku and enter your detail
+- Fork or clone this repository
+- Create a new heroku app
+- Create config-var : DATABASE_URL, DISABLE_COLLECTSTATIC, SECRET_KEY,
+- Select github for the deployment within deployment tab
+- Select manual deploy option
+- link heroku app to the repository -Click on Deploy branch.
 
 ## Validator Testing
 -HTML

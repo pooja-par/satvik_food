@@ -2,7 +2,7 @@
 
 The Satvik Restaurant Table Reservation App is a Django-based web application designed to allow users to book tables at the Satvik restaurant. The app provides a user-friendly interface for customers to reserve tables, view reservations, and make special requests. It also includes an admin panel with rich text editing capabilities for managing reservations using Django Summernote.
 
-![Responsice Mockup Desktop]([https://github.com/pooja-par/satvik_food/satvik/static/satvik/images/bigscreen.png])
+![Responsice Mockup Desktop](https://github.com/pooja-par/satvik_food/blob/main/satvik/static/satvik/images/bigscreen.png)
 ![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/satvik/static/satvik/images/smallscreen.png)
 
 Author: Pooja Parmar

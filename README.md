@@ -2,7 +2,7 @@
 
 The Satvik Restaurant Table Reservation App is a Django-based web application designed to allow users to book tables at the Satvik restaurant. The app provides a user-friendly interface for customers to reserve tables, view reservations, and make special requests. It also includes an admin panel with rich text editing capabilities for managing reservations using Django Summernote.
 
-![Responsice Mockup Desktop]([https://github.com/pooja-par/satvik_food/satvik/static/satvik/images/bigscreen.png]
+![Responsice Mockup Desktop]([https://github.com/pooja-par/satvik_food/satvik/static/satvik/images/bigscreen.png])
 ![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/satvik/static/satvik/images/smallscreen.png)
 
 Author: Pooja Parmar
@@ -65,6 +65,10 @@ Admin Panel: Go to /admin, log in as the superuser, and manage reservations.
 Rich Text Editor: The admin panel includes Django Summernote for managing special requests in reservations with rich text editing.
 
 ![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/satvik/static/satvik/images/output.png)
+
+## Testing
+
+I have manually tested this project by doing the following: -passed code through a PEP8 linter and confirmed there are no problems -Tested in my local terminal and Code Instite Heroku terminal -Check has been made by giving different numbers and also with empty field and random characters. With empty space and random characters, code return error and ask user to reenter the count again. -Where necessary, by print values are checked in terminal.
 
 ## Deployment
 

@@ -3,7 +3,7 @@ from django.views import generic
 from .models import Reservation, Table
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from .forms import ReservationForm
+from .forms import ReservationForm, RegisterForm
 
 #from django.http import HttpResponse
 
@@ -74,3 +74,17 @@ def cancel_reservation(request, reservation_id):
         messages.success(request, 'Your reservation has been cancelled successfully!')
         return redirect('view_bookings')
     return render(request, 'satvik/cancel_reservation.html', {'reservation': reservation})
+
+
+def register(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()  # Save the new user to the database
+            username = form.cleaned_data.get('username')
+            messages.success(request, f'Account created for {username}. You can now log in!')
+            return redirect('login')  # Redirect to the login page
+    else:
+        form = RegisterForm()
+    
+    return render(request, 'satvik/register.html', {'form': form})

@@ -12,6 +12,9 @@ urlpatterns = [
     path('reservations/', views.view_bookings, name='view_bookings'),
     path('cancel/<int:reservation_id>/', views.cancel_reservation, name='cancel_reservation'),
     
-    # Add login URL pattern
+    # Add Register and login URL pattern
     path('login/', auth_views.LoginView.as_view(template_name='satvik/login.html'), name='login'),
+    path('logout/', auth_views.LogoutView.as_view(next_page='/'), name='logout'),  # Redirects to home after logout
+    path('register/', views.register, name='register'),
+    #path('login/', auth_views.LoginView.as_view(template_name='satvik/login.html'), name='login'),
 ]

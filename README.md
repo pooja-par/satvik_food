@@ -14,7 +14,8 @@ Allow the users to view the menu, book the table and also update the booking. We
 ## Features
 
 - Responsive design for various screen sizes: Check the pictures in first section.
-- Nevigation bar for Home, Menu, Contact and Admin Login panal.
+- Nevigation bar for Home, Menu, Contact, Log in, Register and Admin Login panal.
+- Any number of user can log in and retrive their reservation data.
 - Table Reservation: Users can book tables by specifying the number of guests, the date, and the time.
 
 ![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/blob/main/satvik/static/satvik/images/tablereserve.png)
@@ -68,7 +69,11 @@ Rich Text Editor: The admin panel includes Django Summernote for managing specia
 
 ## Testing
 
-I have manually tested this project by doing the following: -passed code through a PEP8 linter and confirmed there are no problems -Tested in my local terminal and Code Instite Heroku terminal -Check has been made by giving different numbers and also with empty field and random characters. With empty space and random characters, code return error and ask user to reenter the count again. -Where necessary, by print values are checked in terminal.
+I have manually tested this project by doing the following: 
+- passed code through a PEP8 linter and confirmed there are no problems 
+- Tested in my local terminal and Code Instite Heroku terminal 
+- Check has been made by giving different table numbers, registration of different users, try to rebook the table, and retriving the data for any user. 
+- Where necessary, by print values are checked in terminal.
 
 ## Deployment
 This project was deployed using Code Institute's mock terminal for Heroku.

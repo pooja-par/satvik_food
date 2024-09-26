@@ -19,7 +19,13 @@ def book_table(request):
         form = ReservationForm(request.POST)
         if form.is_valid():
             reservation = form.save(commit=False)
-            reservation.user = request.user
+            
+            # Handle anonymous users by assigning None to reservation.user if the user is not authenticated
+            if request.user.is_authenticated:
+                reservation.user = request.user  # Authenticated user is assigned to the reservation
+            else:
+                reservation.user = None  # For anonymous users, assign None to reservation.user
+            
             guest_count = reservation.guest_count
 
             # Find available tables that can accommodate the guest count
@@ -34,21 +40,27 @@ def book_table(request):
                     return redirect('view_bookings')
 
             messages.error(request, 'No available tables for the selected date and time.')
-            return redirect('book_table')
+            return redirect('view_bookings')
     else:
         form = ReservationForm()
 
     return render(request, 'satvik/book_table.html', {'form': form})
 
 
-# View to show user reservations
 def view_bookings(request):
-    reservations = Reservation.objects.filter(user=request.user).order_by('-date', '-time')
-    return render(request, 'satvik/view_bookings.html', {'reservations': reservations})
+    if request.user.is_authenticated:
+        # Show bookings for logged-in users
+        reservations = Reservation.objects.filter(user=request.user).order_by('-date', '-time')
+        return render(request, 'satvik/view_bookings.html', {'reservations': reservations})
+    else:
+        # Redirect anonymous users to the home or login page
+        messages.info(request, "Please log in to view your bookings.")
+        return redirect('login')  # Redirect to login page or another relevant page
 
 
 def menu(request):
     return render(request, 'satvik/menu.html')
+
 
 def contact(request):
     return render(request, 'satvik/contact.html')

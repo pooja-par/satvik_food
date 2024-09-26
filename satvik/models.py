@@ -14,7 +14,8 @@ class Table(models.Model):
 
 
 class Reservation(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE)  # Corresponds to HTML select dropdown
+    #user = models.ForeignKey(User, on_delete=models.CASCADE)  # Corresponds to HTML select dropdown
+    user = models.ForeignKey(User, on_delete=models.CASCADE, null=True, blank=True)
     table = models.ForeignKey(Table, on_delete=models.CASCADE)  # Corresponds to HTML select dropdown
     date = models.DateField()  # Corresponds to HTML date input
     time = models.TimeField()  # Corresponds to HTML time input

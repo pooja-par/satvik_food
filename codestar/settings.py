@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = os.environ.get("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ["8000-poojapar-satvikfood-854qz4fn8i4.ws-eu116.gitpod.io",
+ALLOWED_HOSTS = ["8000-poojapar-satvikfood-i9kovkqxc0q.ws-eu116.gitpod.io",
                   ".herokuapp.com",
                   '127.0.0.1', 
                   'localhost']
@@ -108,12 +108,15 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
+    "https://8000-poojapar-satvikfood-i9kovkqxc0q.ws-eu116.gitpod.io",
     "https://*.codeinstitute-ide.net/",
     "https://*.herokuapp.com",
-    "https://8000-poojapar-satvikfood-854qz4fn8i4.ws-eu116.gitpod.io",
     "https://127.0.0.1"
 
 ]
+
+# Redirect users to the reservations page after login
+LOGIN_REDIRECT_URL = '/reservations/'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
@@ -155,3 +158,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# In settings.py
+LOGIN_URL = 'login'  # This corresponds to the name='login' URL pattern in urls.py

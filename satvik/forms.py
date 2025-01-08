@@ -16,6 +16,12 @@ class ReservationForm(forms.ModelForm):
             'special_request': forms.Textarea(attrs={'rows': 4}),
         }
 
+    def clean_date(self):
+        reservation_date = self.cleaned_data.get('date')
+        if reservation_date < date.today():
+            raise ValidationError("The reservation date cannot be in the past.")
+        return reservation_date
+
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)  # Adding an email field
 

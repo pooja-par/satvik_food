@@ -4,14 +4,13 @@ from .models import Reservation, Table
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
 from .forms import ReservationForm, RegisterForm
-
-#from django.http import HttpResponse
-
-# Create your views here.
+from datetime import date
 
 
+# Home View
 def home_view(request):
     return render(request, 'satvik/home.html')  # Points to satvik/templates/satvik/home.html
+
 
 # View to handle table booking
 def book_table(request):
@@ -20,9 +19,14 @@ def book_table(request):
         if form.is_valid():
             reservation = form.save(commit=False)
             
-            # Handle anonymous users by assigning None to reservation.user if the user is not authenticated
+            # Validate booking date to prevent past dates
+            if reservation.date < date.today():
+                messages.error(request, "The reservation date cannot be in the past. Please select a future date.")
+                return render(request, 'satvik/book_table.html', {'form': form})
+            
+            # Assign the user to the reservation if authenticated
             if request.user.is_authenticated:
-                reservation.user = request.user  # Authenticated user is assigned to the reservation
+                reservation.user = request.user
             else:
                 reservation.user = None  # For anonymous users, assign None to reservation.user
             
@@ -40,33 +44,55 @@ def book_table(request):
                     return redirect('view_bookings')
 
             messages.error(request, 'No available tables for the selected date and time.')
-            return redirect('view_bookings')
+            return render(request, 'satvik/book_table.html', {'form': form})
     else:
         form = ReservationForm()
 
     return render(request, 'satvik/book_table.html', {'form': form})
 
 
+# View to display bookings
+@login_required
 def view_bookings(request):
-    if request.user.is_authenticated:
-        # Show bookings for logged-in users
-        reservations = Reservation.objects.filter(user=request.user).order_by('-date', '-time')
-        return render(request, 'satvik/view_bookings.html', {'reservations': reservations})
+    reservations = Reservation.objects.filter(user=request.user).order_by('-date', '-time')
+    return render(request, 'satvik/view_bookings.html', {'reservations': reservations})
+
+
+# View to handle reservation editing
+@login_required
+def edit_reservation(request, reservation_id):
+    reservation = get_object_or_404(Reservation, id=reservation_id, user=request.user)
+    if request.method == 'POST':
+        form = ReservationForm(request.POST, instance=reservation)
+        if form.is_valid():
+            updated_reservation = form.save(commit=False)
+            
+            # Validate the updated date
+            if updated_reservation.date < date.today():
+                messages.error(request, "The updated reservation date cannot be in the past. Please select a future date.")
+                return render(request, 'satvik/edit_reservation.html', {'form': form, 'reservation': reservation})
+            
+            updated_reservation.save()
+            messages.success(request, 'Your reservation has been updated successfully!')
+            return redirect('view_bookings')
     else:
-        # Redirect anonymous users to the home or login page
-        messages.info(request, "Please log in to view your bookings.")
-        return redirect('login')  # Redirect to login page or another relevant page
+        form = ReservationForm(instance=reservation)
+
+    return render(request, 'satvik/edit_reservation.html', {'form': form, 'reservation': reservation})
 
 
+# View to display menu
 def menu(request):
     return render(request, 'satvik/menu.html')
 
 
+# View to display contact page
 def contact(request):
     return render(request, 'satvik/contact.html')
 
 
 # View to handle reservation cancellation
+@login_required
 def cancel_reservation(request, reservation_id):
     reservation = get_object_or_404(Reservation, id=reservation_id, user=request.user)
     if request.method == 'POST':
@@ -76,6 +102,7 @@ def cancel_reservation(request, reservation_id):
     return render(request, 'satvik/cancel_reservation.html', {'reservation': reservation})
 
 
+# View to handle user registration
 def register(request):
     if request.method == 'POST':
         form = RegisterForm(request.POST)

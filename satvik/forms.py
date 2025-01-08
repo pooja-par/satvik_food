@@ -4,6 +4,10 @@ from django import forms
 from .models import Reservation
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.models import User
+from datetime import date
+from django.core.exceptions import ValidationError
+
+
 
 class ReservationForm(forms.ModelForm):
     class Meta:
@@ -18,10 +22,10 @@ class ReservationForm(forms.ModelForm):
 
     def clean_date(self):
         reservation_date = self.cleaned_data.get('date')
-        if reservation_date < date.today():
+        if reservation_date and reservation_date < date.today():
             raise ValidationError("The reservation date cannot be in the past.")
         return reservation_date
-
+    
 class RegisterForm(UserCreationForm):
     email = forms.EmailField(required=True)  # Adding an email field
 

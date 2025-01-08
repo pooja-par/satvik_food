@@ -1,5 +1,3 @@
-<!-- satvik/templates/satvik/book_table.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,25 +9,56 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet">
 </head>
 <body>
+    <!-- Display user messages -->
     {% if messages %}
-        <div class="container">
+        <div class="message-container">
             {% for message in messages %}
-                <div class="message {{ message.tags }}">
+                <div class="alert {{ message.tags }}">
                     {{ message }}
                 </div>
             {% endfor %}
         </div>
     {% endif %}
+
     <div class="form-container">
         <h1>Book a Table</h1>
         <p class="form-description">Please fill in the details below to reserve your table at Satvik Restaurant.</p>
         <form method="POST" id="reservation-form" class="fancy-form">
             {% csrf_token %}
-            {{ form.as_p }}
+            <div class="form-group">
+                <label for="id_date">Date</label>
+                {{ form.date }}
+                {% if form.date.errors %}
+                    <div class="form-error">{{ form.date.errors|striptags }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="id_time">Time</label>
+                {{ form.time }}
+                {% if form.time.errors %}
+                    <div class="form-error">{{ form.time.errors|striptags }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="id_guest_count">Guest Count</label>
+                {{ form.guest_count }}
+                {% if form.guest_count.errors %}
+                    <div class="form-error">{{ form.guest_count.errors|striptags }}</div>
+                {% endif %}
+            </div>
+            <div class="form-group">
+                <label for="id_special_request">Special Request</label>
+                {{ form.special_request }}
+                {% if form.special_request.errors %}
+                    <div class="form-error">{{ form.special_request.errors|striptags }}</div>
+                {% endif %}
+            </div>
             <button type="submit" class="fancy-submit-btn">Book Now</button>
         </form>
         <a href="{% url 'home' %}" class="back-link">Back to Home</a>
     </div>
+
+    <!-- Include any required JavaScript -->
     <script src="{% static 'satvik/js/scripts.js' %}"></script>
 </body>
 </html>

@@ -29,7 +29,7 @@ SECRET_KEY = os.environ.get("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["8000-poojapar-satvikfood-v10ok9cjbqy.ws-eu117.gitpod.io",
+ALLOWED_HOSTS = ["8000-poojapar-satvikfood-g6bkz3o3k7l.ws-eu117.gitpod.io",
                   ".herokuapp.com",
                   '127.0.0.1', 
                   'localhost']
@@ -109,7 +109,7 @@ DATABASES = {
 }
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://*.8000-poojapar-satvikfood-v10ok9cjbqy.ws-eu117.gitpod.io",
+    "https://*.8000-poojapar-satvikfood-g6bkz3o3k7l.ws-eu117.gitpod.io",
     "https://*.codeinstitute-ide.net/",
     "https://*.herokuapp.com",
     "https://127.0.0.1"

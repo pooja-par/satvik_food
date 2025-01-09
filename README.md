@@ -72,7 +72,63 @@ Rich Text Editor: The admin panel includes Django Summernote for managing specia
 
 ## Testing
 
-I have manually tested this project by doing the following: 
+- Manual test for python scripts: 
+
+# Backend Testing (Python):
+
+Objective: Verify backend functionality, including form validation, database interactions, and user authentication.
+
+- Test Cases:
+
+Create Reservation: Ensure reservations can be created with valid inputs.
+Prevent Past Date Booking: Verify that past dates cannot be booked.
+User Authentication: Check if reservations are correctly associated with logged-in users or handled for anonymous users.
+
+- Data Validation: Test how invalid inputs are handled.
+
+- Steps:
+
+Navigate to the "Book Table" page.
+Input test data and submit the form.
+Observe the system behavior and confirm it matches the expected outcomes.
+
+- Outcome:
+
+Reservation is created successfully, and a success message appears.
+An error message appears: "The reservation date cannot be in the past." Form is not submitted.
+If logged in, the reservation is associated with the user. If not, the user field in the database is null.
+Validation errors appear next to invalid fields.
+
+
+# Frontend Testing (JavaScript):
+
+Objective: Verify the responsiveness, interactivity, and usability of the user interface.
+
+- Test Cases:
+
+Navbar Toggle: Check the navigation menu functionality on mobile devices.
+Form Validation Alerts: Verify error messages for invalid inputs.
+Responsive Design: Test layout and usability across various devices.
+Date Input Restriction: Ensure past dates are not selectable in the reservation form.
+
+- Steps:
+
+Perform actions on the web interface (e.g., click buttons, resize windows).
+Observe the UI behavior and ensure it adheres to the expected outcomes.
+
+- Tools:
+
+Use a browser for testing (e.g., Chrome, Firefox).
+Inspect elements and console errors using developer tools (F12).
+
+- Outcome:
+
+Navigation menu toggles visibility correctly.
+Validation messages appear next to invalid fields.
+Layout adjusts to the screen size, ensuring a usable interface.
+Past dates are restricted or display an appropriate error message.
+
+
 - passed code through a PEP8 linter and confirmed there are no problems 
 - Tested in my local terminal and Code Instite Heroku terminal 
 - Check has been made by giving different table numbers, registration of different users, try to rebook the table, and retriving the data for any user. 

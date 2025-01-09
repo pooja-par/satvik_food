@@ -128,11 +128,22 @@ Validation messages appear next to invalid fields.
 Layout adjusts to the screen size, ensuring a usable interface.
 Past dates are restricted or display an appropriate error message.
 
-
+- Test is performed in devices with a different screen size. Website is responsive. 
 - passed code through a PEP8 linter and confirmed there are no problems 
 - Tested in my local terminal and Code Instite Heroku terminal 
 - Check has been made by giving different table numbers, registration of different users, try to rebook the table, and retriving the data for any user. 
 - Where necessary, by print values are checked in terminal.
+
+## Test Validator
+
+# HTML
+![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/blob/main/satvik/static/satvik/images/html_validator.png)
+
+# CSS
+![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/blob/main/satvik/static/satvik/images/css_validator.png)
+
+# JS
+![Responsice Mockup Mobile](https://github.com/pooja-par/satvik_food/blob/main/satvik/static/satvik/images/js_validator.png)
 
 ## Deployment
 This project was deployed using Code Institute's mock terminal for Heroku.
@@ -146,15 +157,6 @@ Steps for deployment:
 - Select manual deploy option
 - link heroku app to the repository -Click on Deploy branch.
 
-## Validator Testing
--HTML
-No errors were returned when passing through the official W3C validator
--CSS
-No errors were found when passing through the official (Jigsaw) validator
-
-## Unfixed Bugs
-
-W2C shows couple of errors related to django. I guess it is not an error but may be django syntex is not identified. 
 
 ## Credits
 
@@ -168,6 +170,16 @@ All images are taken from following links:
 - <https://www.w3schools.com/bootstrap/bootstrap_ref_all_classes.asp> : reference to develop the code
 
 
+## Updates after comments
 
+- Issue with navigation is corrected
+- User stories are mapped, acceptance criterias are given in detail, and priorities are defined where needed
+- Booking edit via form is implemented 
+- Wireframe picture of main pages are added
+- Past dates bookings are not allowed now
 
+## Known improvement
+
+- Book a table after past dates shows without style. Try to correct, but still not working
+- User can also order food at home
 
